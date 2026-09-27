@@ -56,6 +56,11 @@ The mission ends when you fly out of the cave mouth.
 
 ## Controls
 
+The same list is on the **BRIEFING** screen in the game, so you never have to
+come back here for it:
+
+![The briefing screen](screenshots/briefing.png)
+
 | Key | Action |
 |---|---|
 | `W` `S` or `↑` `↓` | Climb and dive |
