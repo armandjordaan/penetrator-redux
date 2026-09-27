@@ -1,0 +1,8 @@
+# Build output
+/target
+
+# Written by the game at runtime: high scores and settings.
+/penetrator_save.txt
+
+# Written by the landscape editor. levels/example.pen ships; custom.pen is yours.
+/levels/custom.pen

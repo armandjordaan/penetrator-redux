@@ -1,0 +1,53 @@
+penetrator-level 1
+seed 0
+# ---------------------------------------------------------------------------
+# example.pen - a short hand-written mission, kept as a worked example of the
+# level format. Copy it to levels/custom.pen to fly it from the menu, or open
+# it in the editor with CTRL+O once copied.
+#
+# Heights are absolute screen y in the 480x270 virtual canvas: "ceil" is the
+# underside of the rock above and "floor" is the top of the rock below, one
+# value per 8-unit column. Spawn coordinates are relative to the start of the
+# zone they appear in.
+#
+# This file obeys the same two rules the generator does. The cave never narrows
+# below about 78 units on the route to the warhead, and neither surface moves
+# more than 8.5 units between adjacent columns - which at this zone's scroll
+# speed is inside what the ship can climb. Break either rule and you get a
+# level that looks fine and cannot be flown.
+#
+# The last fourteen columns close to nothing on purpose. That is the back wall
+# of the chamber, and it sits behind the objective, so it never blocks the
+# route.
+# ---------------------------------------------------------------------------
+
+zone "DEMO RUN" scroll 110 palette 0
+ceil 24.0 25.5 26.9 28.4 29.9 31.3 32.8 34.3 35.7 37.2 38.7 40.1 41.6 43.1 44.5 46.0 46.0 50.9 55.6 60.0
+ceil 64.0 67.6 70.5 72.8 74.4 75.3 75.5 75.1 74.2 72.9 71.2 69.2 67.2 65.1 63.1 61.3 59.7 58.4 57.4 56.7
+ceil 56.2 55.9 55.7 55.6 55.5 55.2 54.7 53.9 52.8 51.2 49.1 46.7 43.8 40.5 37.0 33.2 29.3 25.5 24.0 24.0
+ceil 24.0 24.0 24.0 24.0 24.0 24.0 24.0 24.0 24.0 24.0 24.0 27.4 31.6 35.9 40.1 44.1 47.9 51.2 54.1 56.5
+ceil 58.4 59.8 60.7 61.2 61.4 61.3 69.8 74.8 76.1 77.4 78.7 80.0 81.3 82.6 83.9 85.2 86.5 87.8 89.2 90.5
+ceil 91.8 93.1 94.4 95.7 97.0 98.3 99.6 100.9 102.2 103.5 101.6 99.7 97.8 95.9 94.0 92.1 90.2 88.3 86.4 84.5
+ceil 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5 84.5
+ceil 84.5 84.5 84.5 84.5 84.5 84.5 89.1 93.6 98.2 102.8 107.4 111.9 116.5 121.1 125.6 130.2 134.8 139.4 143.9 148.5
+floor 264.0 262.7 261.3 260.0 258.7 257.3 256.0 254.7 253.3 252.0 250.7 249.3 248.0 246.7 245.3 244.0 235.5 227.0 219.2 217.2
+floor 215.5 214.1 213.0 212.4 212.1 212.2 212.7 213.7 215.0 216.6 218.6 220.9 223.3 226.0 228.8 231.6 234.4 237.2 239.9 242.4
+floor 244.8 247.0 248.9 250.6 252.0 253.2 254.2 254.9 255.4 255.8 256.0 256.2 256.3 256.3 256.4 256.6 256.8 257.2 257.7 258.3
+floor 259.0 259.8 260.8 261.8 263.0 264.0 264.0 264.0 264.0 264.0 264.0 264.0 264.0 264.0 264.0 264.0 264.0 264.0 262.8 260.6
+floor 258.1 255.3 252.3 249.2 245.9 242.6 234.1 225.6 220.9 219.6 218.3 217.0 215.7 214.4 213.1 211.8 210.5 209.2 207.8 206.5
+floor 205.2 203.9 202.6 201.3 200.0 198.7 197.4 196.1 194.8 193.5 195.4 197.3 199.2 201.1 203.0 204.9 206.8 208.7 210.6 212.5
+floor 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5 212.5
+floor 212.5 212.5 212.5 212.5 212.5 212.5 207.9 203.4 198.8 194.2 189.6 185.1 180.5 175.9 171.4 166.8 162.2 157.6 153.1 148.5
+
+# Kill the dish first and every missile after it flies unguided.
+spawn radar 280
+spawn silo 420
+spawn silo 560
+spawn mine 660 150
+spawn turret 700
+spawn silo 800
+
+# The objective, at the back of the chamber. Bombs only - cannon fire will not
+# scratch it.
+spawn warhead 1088.0
+end

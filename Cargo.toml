@@ -1,0 +1,39 @@
+[package]
+name = "penetrator"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Penetrator Redux - a modern redesign of the 1983 ZX Spectrum cave-flyer"
+authors = ["Armand Jordaan"]
+license = "MIT"
+readme = "README.md"
+keywords = ["game", "shmup", "retro", "macroquad"]
+categories = ["games"]
+
+[lib]
+name = "penetrator"
+path = "src/lib.rs"
+
+[[bin]]
+name = "penetrator"
+path = "src/main.rs"
+
+[dependencies]
+macroquad = { version = "0.4.15", default-features = false }
+
+[features]
+default = ["audio"]
+# Procedurally-synthesised sound effects. Disable for headless / CI builds where
+# no audio device is available:  cargo build --no-default-features
+audio = ["macroquad/audio"]
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+
+# The debug profile is what you play during development; without at least
+# opt-level 1 the particle system is noticeably chunky on older machines.
+[profile.dev]
+opt-level = 1
